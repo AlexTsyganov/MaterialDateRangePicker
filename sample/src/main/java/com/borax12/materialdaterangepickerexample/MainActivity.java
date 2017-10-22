@@ -17,7 +17,7 @@ import com.borax12.materialdaterangepicker.time.TimePickerDialog;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements
-    DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener
+        DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener
 {
     private TextView dateTextView;
     private TextView timeTextView;
@@ -72,6 +72,13 @@ public class MainActivity extends AppCompatActivity implements
                     @Override
                     public void onCancel(DialogInterface dialogInterface) {
                         Log.d("TimePicker", "Dialog was cancelled");
+                    }
+                });
+                tpd.setShowDeleteBtn(true);
+                tpd.setOnDeleteListener(new TimePickerDialog.OnDeleteListener() {
+                    @Override
+                    public void onDeleteBtnClick() {
+                        Log.d("TimePicker", "Delete clicked");
                     }
                 });
                 tpd.show(getFragmentManager(), "Timepickerdialog");
