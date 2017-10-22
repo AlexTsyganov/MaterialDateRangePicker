@@ -74,6 +74,13 @@ public class MainActivity extends AppCompatActivity implements
                         Log.d("TimePicker", "Dialog was cancelled");
                     }
                 });
+                tpd.setShowDeleteBtn(true);
+                tpd.setOnDeleteListener(new TimePickerDialog.OnDeleteListener() {
+                    @Override
+                    public void onDeleteBtnClick() {
+                        Log.d("TimePicker", "Delete clicked");
+                    }
+                });
                 tpd.show(getFragmentManager(), "Timepickerdialog");
             }
         });
