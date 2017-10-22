@@ -27,10 +27,10 @@
     <color name="mdtp_numbers_text_color">#ff212121</color>
 
     <color name="mdtp_transparent_black">#7f000000</color>
-    <color name="mdtp_accent_color">#00a8a8</color>
+    <color name="mdtp_accent_color">#009688</color>
     <color name="mdtp_accent_color_focused">#76ffffff</color>
     <color name="mdtp_neutral_pressed">#33999999</color>
-    <color name="mdtp_accent_color_dark">#00a8a8</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
     <color name="mdtp_date_picker_text_normal">#ff212121</color>
     <color name="mdtp_date_picker_text_highlighted">@color/mdtp_date_picker_text_normal</color>
     <color name="mdtp_date_picker_text_disabled">#ccc</color>
@@ -43,7 +43,7 @@
     <color name="mdtp_date_picker_text_disabled_dark_theme">#767676</color>
     <color name="mdtp_date_picker_text_highlighted_dark_theme">@color/mdtp_date_picker_text_normal_dark_theme</color>
 
-    <color name="mdtp_calendar_header">#00a8a8</color>
+    <color name="mdtp_calendar_header">@color/mdtp_accent_color_dark</color>
     <color name="mdtp_date_picker_view_animator">@android:color/white</color>
     <color name="mdtp_calendar_selected_date_text">#ffd1d2d4</color>
 

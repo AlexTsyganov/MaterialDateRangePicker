@@ -50,8 +50,4 @@
         <item name="android:textColor">@color/mdtp_button_color</item>
         <item name="android:textAllCaps">true</item>
     </style>
-
-    <style name="mdtp_ActionButton.Text.Delete">
-
-    </style>
 </resources>

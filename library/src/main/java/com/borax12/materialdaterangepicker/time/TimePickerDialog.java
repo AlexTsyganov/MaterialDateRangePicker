@@ -82,13 +82,11 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
     private static final int PULSE_ANIMATOR_DELAY = 300;
 
     private OnTimeSetListener mCallback;
-    private OnDeleteListener mOnDeleteListener;
     private DialogInterface.OnCancelListener mOnCancelListener;
     private DialogInterface.OnDismissListener mOnDismissListener;
 
     private HapticFeedbackController mHapticFeedbackController;
 
-    private Button mDeleteButton;
     private Button mCancelButton;
     private Button mOkButton;
     private TextView mHourView;
@@ -98,8 +96,6 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
     private TextView mAmPmTextView;
     private View mAmPmHitspace;
     private RadialPickerLayout mTimePicker;
-
-    private boolean isShowDeleteBtn = false;
 
     private int mSelectedColor;
     private int mUnselectedColor;
@@ -159,8 +155,6 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
          */
         void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int hourOfDayEnd, int minuteEnd);
     }
-
-
 
     public TimePickerDialog() {
         // Empty constructor required for dialog fragment.
@@ -264,20 +258,12 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         mCallback = callback;
     }
 
-    public void setOnDeleteListener(OnDeleteListener onDeleteListener) {
-        mOnDeleteListener = onDeleteListener;
-    }
-
     public void setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
         mOnCancelListener = onCancelListener;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
-    }
-
-    public void setShowDeleteBtn(boolean showDeleteBtn) {
-        isShowDeleteBtn = showDeleteBtn;
     }
 
     public void setStartTime(int hourOfDay, int minute) {
@@ -443,19 +429,6 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         });
         mOkButton.setOnKeyListener(keyboardListener);
         mOkButton.setTypeface(TypefaceHelper.get(getDialog().getContext(), "Roboto-Medium"));
-
-        mDeleteButton = (Button) view.findViewById(R.id.delete);
-        mDeleteButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mOnDeleteListener != null) {
-                    mOnDeleteListener.onDeleteBtnClick();
-                }
-                if(getDialog() != null) getDialog().cancel();
-            }
-        });
-        mDeleteButton.setVisibility(isShowDeleteBtn ? View.VISIBLE : View.INVISIBLE);
-        mDeleteButton.setTypeface(TypefaceHelper.get(getDialog().getContext(),"Roboto-Medium"));
 
         mCancelButton = (Button) view.findViewById(R.id.cancel);
         mCancelButton.setOnClickListener(new OnClickListener() {
@@ -1379,9 +1352,5 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
             }
             return false;
         }
-    }
-
-    public interface OnDeleteListener {
-        void onDeleteBtnClick();
     }
 }
