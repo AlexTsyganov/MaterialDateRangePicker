@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
  */
 
 @SuppressWarnings("WeakerAccess")
-public class Timepoint implements Parcelable, Comparable<Timepoint> {
+public class TimepointCustom implements Parcelable, Comparable<TimepointCustom> {
     private int hour;
     private int minute;
     private int second;
@@ -22,28 +22,28 @@ public class Timepoint implements Parcelable, Comparable<Timepoint> {
         SECOND
     }
 
-    public Timepoint(Timepoint time) {
+    public TimepointCustom(TimepointCustom time) {
         this(time.hour, time.minute, time.second);
     }
 
-    public Timepoint(@IntRange(from=0, to=23) int hour,
-                     @IntRange(from=0, to=59) int minute,
-                     @IntRange(from=0, to=59) int second) {
+    public TimepointCustom(@IntRange(from=0, to=23) int hour,
+                           @IntRange(from=0, to=59) int minute,
+                           @IntRange(from=0, to=59) int second) {
         this.hour = hour % 24;
         this.minute = minute % 60;
         this.second = second % 60;
     }
 
-    public Timepoint(@IntRange(from=0, to=23) int hour,
-                     @IntRange(from=0, to=59) int minute) {
+    public TimepointCustom(@IntRange(from=0, to=23) int hour,
+                           @IntRange(from=0, to=59) int minute) {
         this(hour, minute, 0);
     }
 
-    public Timepoint(@IntRange(from=0, to=23) int hour) {
+    public TimepointCustom(@IntRange(from=0, to=23) int hour) {
         this(hour, 0);
     }
 
-    public Timepoint(Parcel in) {
+    public TimepointCustom(Parcel in) {
         hour = in.readInt();
         minute = in.readInt();
         second = in.readInt();
@@ -121,12 +121,12 @@ public class Timepoint implements Parcelable, Comparable<Timepoint> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Timepoint timepoint = (Timepoint) o;
+        TimepointCustom timepoint = (TimepointCustom) o;
 
         return hashCode() == timepoint.hashCode();
     }
 
-    public boolean equals(@Nullable Timepoint time, @NonNull TYPE resolution) {
+    public boolean equals(@Nullable TimepointCustom time, @NonNull TYPE resolution) {
         if (time == null) return false;
         boolean output = true;
         switch (resolution) {
@@ -141,7 +141,7 @@ public class Timepoint implements Parcelable, Comparable<Timepoint> {
     }
 
     @Override
-    public int compareTo(@NonNull Timepoint t) {
+    public int compareTo(@NonNull TimepointCustom t) {
         return hashCode() - t.hashCode();
     }
 
@@ -157,14 +157,14 @@ public class Timepoint implements Parcelable, Comparable<Timepoint> {
         return 0;
     }
 
-    public static final Parcelable.Creator<Timepoint> CREATOR
-            = new Parcelable.Creator<Timepoint>() {
-        public Timepoint createFromParcel(Parcel in) {
-            return new Timepoint(in);
+    public static final Parcelable.Creator<TimepointCustom> CREATOR
+            = new Parcelable.Creator<TimepointCustom>() {
+        public TimepointCustom createFromParcel(Parcel in) {
+            return new TimepointCustom(in);
         }
 
-        public Timepoint[] newArray(int size) {
-            return new Timepoint[size];
+        public TimepointCustom[] newArray(int size) {
+            return new TimepointCustom[size];
         }
     };
 

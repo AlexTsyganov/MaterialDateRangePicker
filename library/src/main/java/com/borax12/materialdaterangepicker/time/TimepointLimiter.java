@@ -10,15 +10,16 @@ import android.support.annotation.Nullable;
 
 @SuppressWarnings("WeakerAccess")
 public interface TimepointLimiter extends Parcelable {
-    boolean isOutOfRange(@Nullable Timepoint point, int index, @NonNull Timepoint.TYPE resolution);
+    boolean isOutOfRange(@Nullable TimepointCustom point, int index, @NonNull TimepointCustom.TYPE resolution);
 
     boolean isAmDisabled();
 
     boolean isPmDisabled();
 
-    @NonNull Timepoint roundToNearest(
-            @NonNull Timepoint time,
-            @Nullable Timepoint.TYPE type,
-            @NonNull Timepoint.TYPE resolution
+    @NonNull
+    TimepointCustom roundToNearest(
+            @NonNull TimepointCustom time,
+            @Nullable TimepointCustom.TYPE type,
+            @NonNull TimepointCustom.TYPE resolution
     );
 }

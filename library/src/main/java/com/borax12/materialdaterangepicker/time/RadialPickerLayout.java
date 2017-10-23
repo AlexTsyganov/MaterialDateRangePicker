@@ -25,7 +25,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -444,7 +443,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
     }
 
 
-    private int reselectSelector(Timepoint newSelection, boolean forceDrawDot, int index) {
+    private int reselectSelector(TimepointCustom newSelection, boolean forceDrawDot, int index) {
         int result = 0;
         int hour = newSelection.getHour();
         switch(index) {
@@ -759,9 +758,9 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                             degrees = 0;
                         }
                     }
-//                    Timepoint p1 = getTimeFromDegrees(degrees, isInnerCircle[0], false);
+//                    TimepointCustom p1 = getTimeFromDegrees(degrees, isInnerCircle[0], false);
 //                    Log.d("alex.tsyganov", p1.toString());
-//                    Timepoint value1 = roundToValidTime(
+//                    TimepointCustom value1 = roundToValidTime(
 //                            p1,
 //                            getCurrentItemShowing()
 //                    );
@@ -953,7 +952,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
         return false;
     }
 
-    private Timepoint getTimeFromDegrees(int degrees, boolean isInnerCircle, boolean forceToVisibleValue) {
+    private TimepointCustom getTimeFromDegrees(int degrees, boolean isInnerCircle, boolean forceToVisibleValue) {
         if (degrees == -1) {
             return null;
         }
@@ -997,30 +996,30 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
             value += 12;
         }
 
-        Timepoint newSelection;
+        TimepointCustom newSelection;
         switch(currentShowing) {
             case HOUR_INDEX:
                 int hour = value;
                 if(!mIs24HourMode && getIsCurrentlyAmOrPm() == PM && degrees != 360) hour += 12;
                 if(!mIs24HourMode && getIsCurrentlyAmOrPm() == AM && degrees == 360) hour = 0;
-                newSelection = new Timepoint(hour, mCurrentMinutes, 0);
+                newSelection = new TimepointCustom(hour, mCurrentMinutes, 0);
                 break;
             case MINUTE_INDEX:
-                newSelection = new Timepoint(mCurrentHoursOfDay, value, 0);
+                newSelection = new TimepointCustom(mCurrentHoursOfDay, value, 0);
                 break;
             default:
-                newSelection = new Timepoint(mCurrentHoursOfDay, mCurrentMinutes, 0);;
+                newSelection = new TimepointCustom(mCurrentHoursOfDay, mCurrentMinutes, 0);;
         }
 
         return newSelection;
     }
 
-    private Timepoint roundToValidTime(Timepoint newSelection, int currentItemShowing) {
+    private TimepointCustom roundToValidTime(TimepointCustom newSelection, int currentItemShowing) {
         switch(currentItemShowing) {
             case HOUR_INDEX:
-                return newSelection; //Timepoint.TYPE.MINUTE
+                return newSelection; //TimepointCustom.TYPE.MINUTE
             case MINUTE_INDEX:
-                return mLimiter.roundToNearest(newSelection, Timepoint.TYPE.HOUR, Timepoint.TYPE.MINUTE);
+                return mLimiter.roundToNearest(newSelection, TimepointCustom.TYPE.HOUR, TimepointCustom.TYPE.MINUTE);
         }
         return newSelection;
     }
