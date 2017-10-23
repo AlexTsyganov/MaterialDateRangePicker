@@ -347,19 +347,19 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         tabHost.addTab(startDatePage);
         tabHost.addTab(endDatePage);
 
-        mHourView = (TextView) view.findViewById(R.id.hours);
+        mHourView = (TextView) view.findViewById(R.id.mdrp_hours);
         mHourView.setOnKeyListener(keyboardListener);
         mHourViewEnd = (TextView) view.findViewById(R.id.hours_end);
         mHourViewEnd.setOnKeyListener(keyboardListener);
-        mHourSpaceView = (TextView) view.findViewById(R.id.hour_space);
+        mHourSpaceView = (TextView) view.findViewById(R.id.mdrp_hour_space);
         mHourSpaceViewEnd = (TextView) view.findViewById(R.id.hour_space_end);
-        mMinuteSpaceView = (TextView) view.findViewById(R.id.minutes_space);
+        mMinuteSpaceView = (TextView) view.findViewById(R.id.mdrp_minutes_space);
         mMinuteSpaceViewEnd = (TextView) view.findViewById(R.id.minutes_space_end);
-        mMinuteView = (TextView) view.findViewById(R.id.minutes);
+        mMinuteView = (TextView) view.findViewById(R.id.mdrp_minutes);
         mMinuteView.setOnKeyListener(keyboardListener);
         mMinuteViewEnd = (TextView) view.findViewById(R.id.minutes_end);
         mMinuteViewEnd.setOnKeyListener(keyboardListener);
-        mAmPmTextView = (TextView) view.findViewById(R.id.ampm_label);
+        mAmPmTextView = (TextView) view.findViewById(R.id.mdrp_ampm_label);
         mAmPmTextView.setOnKeyListener(keyboardListener);
         mAmPmTextViewEnd = (TextView) view.findViewById(R.id.ampm_label_end);
         mAmPmTextViewEnd.setOnKeyListener(keyboardListener);
@@ -425,7 +425,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
             }
         });
 
-        mOkButton = (Button) view.findViewById(R.id.ok);
+        mOkButton = (Button) view.findViewById(R.id.mdrp_ok);
         mOkButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -444,7 +444,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         mOkButton.setOnKeyListener(keyboardListener);
         mOkButton.setTypeface(TypefaceHelper.get(getDialog().getContext(), "Roboto-Medium"));
 
-        mDeleteButton = (Button) view.findViewById(R.id.delete);
+        mDeleteButton = (Button) view.findViewById(R.id.mdrp_delete);
         mDeleteButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -457,7 +457,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         mDeleteButton.setVisibility(isShowDeleteBtn ? View.VISIBLE : View.INVISIBLE);
         mDeleteButton.setTypeface(TypefaceHelper.get(getDialog().getContext(),"Roboto-Medium"));
 
-        mCancelButton = (Button) view.findViewById(R.id.cancel);
+        mCancelButton = (Button) view.findViewById(R.id.mdrp_cancel);
         mCancelButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -469,7 +469,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         mCancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
 
         // Enable or disable the AM/PM view.
-        mAmPmHitspace = view.findViewById(R.id.ampm_hitspace);
+        mAmPmHitspace = view.findViewById(R.id.mdrp_ampm_hitspace);
         mAmPmHitspaceEnd = view.findViewById(R.id.ampm_hitspace_end);
 
         if (mIs24HourMode) {
@@ -479,7 +479,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
             RelativeLayout.LayoutParams paramsSeparator = new RelativeLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             paramsSeparator.addRule(RelativeLayout.CENTER_IN_PARENT);
-            TextView separatorView = (TextView) view.findViewById(R.id.separator);
+            TextView separatorView = (TextView) view.findViewById(R.id.mdrp_separator);
             TextView separatorViewEnd = (TextView) view.findViewById(R.id.separator_end);
             separatorView.setLayoutParams(paramsSeparator);
             separatorViewEnd.setLayoutParams(paramsSeparator);

@@ -423,7 +423,7 @@ public class DatePickerDialog extends DialogFragment implements
         animation2End.setDuration(ANIMATION_DURATION);
         mAnimatorEnd.setOutAnimation(animation2);
 
-        Button okButton = (Button) view.findViewById(R.id.ok);
+        Button okButton = (Button) view.findViewById(R.id.mdrp_ok);
         okButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -439,7 +439,7 @@ public class DatePickerDialog extends DialogFragment implements
         });
         okButton.setTypeface(TypefaceHelper.get(activity, "Roboto-Medium"));
 
-        Button cancelButton = (Button) view.findViewById(R.id.cancel);
+        Button cancelButton = (Button) view.findViewById(R.id.mdrp_cancel);
         cancelButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
