@@ -316,9 +316,9 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
                              Bundle savedInstanceState) {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        View view = inflater.inflate(R.layout.mdrp_range_time_picker_dialog, null);
+        View view = inflater.inflate(R.layout.at_mdrp_range_time_picker_dialog, null);
         KeyboardListener keyboardListener = new KeyboardListener();
-        view.findViewById(R.id.time_picker_dialog).setOnKeyListener(keyboardListener);
+        view.findViewById(R.id.at_time_picker_dialog).setOnKeyListener(keyboardListener);
 
         Resources res = getResources();
         mHourPickerDescription = res.getString(R.string.mdtp_hour_picker_description);
@@ -569,7 +569,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
 
             mTimePicker.setBackgroundColor(mThemeDark? lightGray : circleBackground);
             mTimePickerEnd.setBackgroundColor(mThemeDark ? lightGray : circleBackground);
-            view.findViewById(R.id.time_picker_dialog).setBackgroundColor(mThemeDark ? darkBackgroundColor : backgroundColor);
+            view.findViewById(R.id.at_time_picker_dialog).setBackgroundColor(mThemeDark ? darkBackgroundColor : backgroundColor);
         }
 
 

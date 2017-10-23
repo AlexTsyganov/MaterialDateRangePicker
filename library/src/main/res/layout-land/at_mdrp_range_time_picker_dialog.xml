@@ -14,7 +14,7 @@
   ~ limitations under the License
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/time_picker_dialog"
+    android:id="@+id/at_time_picker_dialog"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/mdtp_background_color"
@@ -85,7 +85,7 @@
                             android:background="@color/mdtp_accent_color">
 
                             <include
-                                layout="@layout/mdtp_time_header_label"
+                                layout="@layout/at_mdtp_time_header_label"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/mdtp_header_height"
                                 android:layout_gravity="center" />
@@ -134,7 +134,7 @@
                             android:background="@color/mdtp_accent_color">
 
                             <include
-                                layout="@layout/mdtp_time_header_label_end"
+                                layout="@layout/at_mdtp_time_header_label_end"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/mdtp_header_height"
                                 android:layout_gravity="center" />
@@ -145,5 +145,5 @@
         </LinearLayout>
     </TabHost>
 
-    <include layout="@layout/mdtp_done_button" />
+    <include layout="@layout/at_mdtp_done_button" />
 </LinearLayout>

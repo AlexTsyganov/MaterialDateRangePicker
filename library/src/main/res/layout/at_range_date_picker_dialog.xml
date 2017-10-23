@@ -48,9 +48,9 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/mdtp_date_picker_selected_date" />
+                    <include layout="@layout/at_mdtp_date_picker_selected_date" />
 
-                    <include layout="@layout/mdtp_date_picker_view_animator" />
+                    <include layout="@layout/at_mdtp_date_picker_view_animator" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -60,15 +60,15 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/mdtp_date_picker_selected_date_end" />
+                    <include layout="@layout/at_mdtp_date_picker_selected_date_end" />
 
-                    <include layout="@layout/mdtp_date_picker_view_animator_end" />
+                    <include layout="@layout/at_mdtp_date_picker_view_animator_end" />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
 
     </TabHost>
 
-    <include layout="@layout/mdtp_done_button" />
+    <include layout="@layout/at_mdtp_done_button" />
 
 </LinearLayout>
