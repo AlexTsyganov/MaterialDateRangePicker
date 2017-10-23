@@ -32,6 +32,8 @@ import android.view.View;
 
 import com.borax12.materialdaterangepicker.R;
 
+import java.util.ArrayList;
+
 
 /**
  * A view to show a series of numbers in a circular pattern.
@@ -289,18 +291,26 @@ public class RadialTextsView extends View {
             float[] textGridWidths, float[] textGridHeights) {
         mPaint.setTextSize(textSize);
         mPaint.setTypeface(typeface);
-        canvas.drawText(texts[0], textGridWidths[3], textGridHeights[0], Integer.parseInt(texts[0]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[1], textGridWidths[4], textGridHeights[1], Integer.parseInt(texts[1]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[2], textGridWidths[5], textGridHeights[2], Integer.parseInt(texts[2]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[3], textGridWidths[6], textGridHeights[3], Integer.parseInt(texts[3]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[4], textGridWidths[5], textGridHeights[4], Integer.parseInt(texts[4]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[5], textGridWidths[4], textGridHeights[5], Integer.parseInt(texts[5]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[6], textGridWidths[3], textGridHeights[6], Integer.parseInt(texts[6]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[7], textGridWidths[2], textGridHeights[5], Integer.parseInt(texts[7]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[8], textGridWidths[1], textGridHeights[4], Integer.parseInt(texts[8]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[9], textGridWidths[0], textGridHeights[3], Integer.parseInt(texts[9]) == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[10], textGridWidths[1], textGridHeights[2], Integer.parseInt(texts[10])  == selection ? mSelectedPaint : mPaint);
-        canvas.drawText(texts[11], textGridWidths[2], textGridHeights[1], Integer.parseInt(texts[11])  == selection ? mSelectedPaint : mPaint);
+        boolean[] selected = new boolean[12];
+        for (int i = 0; i < 12; i++){
+            try {
+                selected[i] = Integer.parseInt(texts[i]) == selection;
+            } catch (Exception ex) {
+                selected[i] = false;
+            }
+        }
+        canvas.drawText(texts[0], textGridWidths[3], textGridHeights[0], selected[0] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[1], textGridWidths[4], textGridHeights[1], selected[1] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[2], textGridWidths[5], textGridHeights[2], selected[2] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[3], textGridWidths[6], textGridHeights[3], selected[3] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[4], textGridWidths[5], textGridHeights[4], selected[4] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[5], textGridWidths[4], textGridHeights[5], selected[5] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[6], textGridWidths[3], textGridHeights[6], selected[6] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[7], textGridWidths[2], textGridHeights[5], selected[7] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[8], textGridWidths[1], textGridHeights[4], selected[8] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[9], textGridWidths[0], textGridHeights[3], selected[9] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[10], textGridWidths[1], textGridHeights[2], selected[10] ? mSelectedPaint : mPaint);
+        canvas.drawText(texts[11], textGridWidths[2], textGridHeights[1], selected[11] ? mSelectedPaint : mPaint);
     }
 
     /**
