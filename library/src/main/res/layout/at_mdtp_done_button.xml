@@ -26,6 +26,7 @@
         android:id="@+id/mdrp_cancel"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
         android:layout_gravity="start"
@@ -36,8 +37,7 @@
         android:id="@+id/mdrp_delete"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"
+
         android:layout_gravity="center"
         android:visibility="invisible"
         style="@style/mdtp_ActionButton.Text"
